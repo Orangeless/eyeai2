@@ -129,6 +129,17 @@
       z-index:1000000;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     }
+    #eyeai-root .eyeai-vtuber{
+      background: transparent !important;
+    }
+
+    #eyeai-root video.eyeai-video,
+    #eyeai-root img.eyeai-idlepng{
+    will-change: opacity;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    }
+
 
     #${ROOT_ID} .eyeai-vtuber{
       position:fixed;
@@ -277,6 +288,9 @@
   video.autoplay = true;
   video.loop = true;
   video.preload = "auto";
+  video.poster = resolveAsset(CFG.idleStillPng);
+  video.style.backgroundColor = "transparent";
+
 
   vtuber.appendChild(idlePng);
   vtuber.appendChild(video);
